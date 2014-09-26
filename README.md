@@ -31,3 +31,5 @@ Account a = new Account(
 DB.inserter(a);
 ```
 
+## Quick Install
+Use the Github Salesforce Deploy Tool link (here)[https://githubsfdeploy.herokuapp.com/app/githubdeploy/aldoforce/apex-db-manager] while logged into your target org and follow instructions.
