@@ -57,6 +57,24 @@ public with sharing class DB {
 		);
 	}
 
+	/** Upsert specific DML operation based on sObject Id *************************/
+	private static void upsert_dml(SObject[] pSObjects) {
+		//containers
+		SObject[] pInsert = new SObject[]{};
+		SObject[] pUpdate = new SObject[]{};
+		
+		//collect and classify
+		for (SObject s : pSObjects)
+			if (s.get('id') == null)
+				pInsert.add(s);
+			else
+				pUpdate.add(s);
+
+		//dmls
+		insert pInsert;
+		update pUpdate;
+	}
+
 	/** generic exception ********************************************************/
 	private static void raiseException(SObject pSObject, String pOperation) {
 		throw new DBException(
