@@ -46,7 +46,7 @@ public with sharing class DB {
 			if ( 	pSObjects[0].getSObjectType().getDescribe().isCreateable() && 
 						pSObjects[0].getSObjectType().getDescribe().isUpdateable() ) 
 				//dml
-				upsert pSObjects;
+				DB.upsert_dml(pSObjects);
 			else
 				DB.raiseException(pSObjects[0], 'upsert');				
 	}
